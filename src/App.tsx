@@ -19,7 +19,7 @@ function App() {
 
     return (
         <>
-            <p>FOrmat me</p>
+            <p>Format me</p>
             {data.map((item: Aircraft) => {
                 return (
                     <>
