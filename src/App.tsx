@@ -35,18 +35,16 @@ function App() {
         })
         const responseData = await response.json()
 
-        setData([...data, responseData])
+        setData([responseData, ...data])
 
         setAirframe('')
         setPilot('')
     }
 
     return (
-        <div className="w-full flex justify-center">
-            <div className="max-w-md w-full m-6 box-border p-6 border border-gray-200 space-y-10 rounded-md shadow-md">
-                <h1 className="text-3xl font-medium text-center mb-6">
-                    Aircraft
-                </h1>
+        <div className="w-full flex justify-center h-screen overflow-hidden">
+            <div className="flex flex-col overflow-hidden max-w-md w-full m-6 box-border p-6 border border-gray-200 rounded-md shadow">
+                <h1 className="text-3xl font-medium text-center">Aircraft</h1>
 
                 <form
                     className="mb-8 flex flex-col gap-4"
@@ -85,7 +83,7 @@ function App() {
 
                 <div className="h-px bg-gray-200" />
 
-                <ul className="flex flex-col space-y-8">
+                <ul className="flex flex-col space-y-4 overflow-scroll flex-grow pr-4 pt-6">
                     {data.map((item: Aircraft) => {
                         return (
                             <AircraftCard
