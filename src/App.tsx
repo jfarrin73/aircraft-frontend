@@ -1,5 +1,4 @@
 import { FormEvent, useEffect, useState } from 'react'
-import './App.css'
 import AircraftCard from './AircraftCard.tsx'
 import { Aircraft } from './types/Aircraft.ts'
 
@@ -43,40 +42,64 @@ function App() {
     }
 
     return (
-        <>
-            <h1>Aircraft</h1>
+        <div className="w-full flex justify-center">
+            <div className="max-w-md w-full m-6 box-border p-6 border border-gray-200 space-y-10 rounded-md shadow-md">
+                <h1 className="text-3xl font-medium text-center mb-6">
+                    Aircraft
+                </h1>
 
-            <form onSubmit={onFormSubmit}>
-                <label htmlFor="airframe">Airframe</label>
-                <input
-                    id="airframe"
-                    value={airframe}
-                    onChange={(e) => setAirframe(e.target.value)}
-                />
-                <label htmlFor="pilot">Pilot</label>
-                <input
-                    id="pilot"
-                    value={pilot}
-                    onChange={(e) => setPilot(e.target.value)}
-                />
-
-                <button type="submit">Create</button>
-            </form>
-
-            <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
-                {data.map((item: Aircraft) => {
-                    return (
-                        <AircraftCard
-                            key={item.id}
-                            airframe={item.airframe}
-                            id={item.id}
-                            pilot={item.pilot}
-                            crew_chief_id={item.crew_chief_id}
+                <form
+                    className="mb-8 flex flex-col gap-4"
+                    onSubmit={onFormSubmit}
+                >
+                    <div className="flex flex-col">
+                        <label className="text-sm" htmlFor="airframe">
+                            Airframe
+                        </label>
+                        <input
+                            className=" border border-gray-200 p-2 rounded-md mt-0.5"
+                            id="airframe"
+                            value={airframe}
+                            onChange={(e) => setAirframe(e.target.value)}
                         />
-                    )
-                })}
-            </ul>
-        </>
+                    </div>
+                    <div className="flex flex-col">
+                        <label className="text-sm" htmlFor="pilot">
+                            Pilot
+                        </label>
+                        <input
+                            className=" border border-gray-200 p-2 rounded-md mt-0.5"
+                            id="pilot"
+                            value={pilot}
+                            onChange={(e) => setPilot(e.target.value)}
+                        />
+                    </div>
+
+                    <button
+                        className="p-2 bg-black text-white rounded-md w-full"
+                        type="submit"
+                    >
+                        Create
+                    </button>
+                </form>
+
+                <div className="h-px bg-gray-200" />
+
+                <ul className="flex flex-col space-y-8">
+                    {data.map((item: Aircraft) => {
+                        return (
+                            <AircraftCard
+                                key={item.id}
+                                airframe={item.airframe}
+                                id={item.id}
+                                pilot={item.pilot}
+                                crew_chief_id={item.crew_chief_id}
+                            />
+                        )
+                    })}
+                </ul>
+            </div>
+        </div>
     )
 }
 
