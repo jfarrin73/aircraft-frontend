@@ -35,7 +35,7 @@ function App() {
         })
         const responseData = await response.json()
 
-        setData([responseData, ...data])
+        setData([...data, responseData])
 
         setAirframe('')
         setPilot('')
