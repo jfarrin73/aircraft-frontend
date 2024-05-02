@@ -64,11 +64,7 @@ function App() {
                             Airframe
                         </label>
                         <input
-                            {...register('airframe', {
-                                required: true,
-                                maxLength: 20,
-                                minLength: 2,
-                            })}
+                            {...register('airframe')}
                             className=" border border-gray-200 p-2 rounded-md mt-0.5"
                             id="airframe"
                         />
@@ -89,7 +85,7 @@ function App() {
                             Pilot
                         </label>
                         <input
-                            {...register('pilot', { required: true })}
+                            {...register('pilot')}
                             className=" border border-gray-200 p-2 rounded-md mt-0.5"
                             id="pilot"
                         />
