@@ -83,7 +83,7 @@ function App() {
 
                 <div className="h-px bg-gray-200" />
 
-                <ul className="flex flex-col space-y-4 overflow-scroll flex-grow pr-4 pt-6">
+                <ul className="flex flex-col space-y-4 overflow-y-scroll flex-grow pr-4 pt-6">
                     {data.map((item: Aircraft) => {
                         return (
                             <AircraftCard
